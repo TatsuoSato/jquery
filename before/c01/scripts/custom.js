@@ -27,6 +27,19 @@ $(function(){
         $parent.siblings().css('color', 'black');
         $parent.css('color', 'gold');
     });
+    $('#unordered').find('li').on('click', function(){
+        var $this = $(this);
+        var count = $this.data('count') + 1;
+        var newString = 'このリストを' + count + '回クリックしました。'
+
+        $this
+        .data('count', count)
+        .text(newString);
+    });
+    $('#ordered').find('li').on('click', function(){
+        var $element = $('<li>追加された序列リスト項目</li>');
+        $(this).after($element);
+    });
     /*
     $('ul').css('background-color', 'yellowgreen');
     $('#ordered').css('background-color', 'wheat');
