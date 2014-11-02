@@ -106,3 +106,14 @@ RESPONSIVE: スマートフォン向けウィンドウ幅660ピクセル以下
       font-size: 0.8em;
     }
 }
+
+.shortcut li img {
+    border-radius: 50%;
+}
+.first .btn-action img {
+    transition: box-shadow 0.6s ease-in-out;
+    box-shadow: none;
+}
+.first .btn-action img.animate {
+    box-shadow: 0px 0px 12px 12px rgba(117, 180, 196, 0.5);
+}
