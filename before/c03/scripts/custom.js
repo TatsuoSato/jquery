@@ -150,3 +150,14 @@ $(function(){
         changeImage($(this));
     });
 });
+
+$(function(){
+    $('fetch').on('click', function(event){
+        event.preventDefault();
+        $this = $(this);
+        var ajaxUrl = $this.attr('href');
+        $.get(ajaxUrl, function(data){
+            console.dir(data);
+        });
+    });
+});
