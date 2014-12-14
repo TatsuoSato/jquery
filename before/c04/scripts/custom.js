@@ -33,6 +33,14 @@ $(function(){
 });
 
 $(function(){
+
+    function mediaDetect(query){
+        if(window.matchMedia){
+            return window.matchMedia(query).matches
+        } else {
+          return false;
+        }
+    }
     $(window).on('scroll', function(){
       var scrollValue = $(this).scrollTop();
       //console.log(scrollValue);
@@ -49,7 +57,15 @@ $(function(){
       //console.log('customScroll %s', object.posY);
       var $this = $(this);
 
-      if($this.data('initial') <= object.posY) {
+      if($this.hasClass('noresponsive') && mediaDetect('(max-width:600px)')){
+          //なにもしない
+      } else {
+      var offsetTop = 0;
+      if ($this.data('offsettop')){
+          offsetTop = $this.data('offsettop');
+      }
+
+      if($this.data('initial') - offsetTop <= object.posY) {
         //要素を固定
         if(!$this.hasClass('fixed')) {
           var $substitute = $('<div></div>');
@@ -66,12 +82,13 @@ $(function(){
           $this
           .after($substitute)
           .addClass('fixed')
-          .css({top: 0});
+          .css({top: offsetTop});
         }
       } else {
         //要素の固定を解除
         $this.next('.substitute').remove();
         $this.removeClass('fixed');
       }
+    }
     });
 });
