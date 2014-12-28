@@ -92,3 +92,40 @@ $(function(){
     }
     });
 });
+$(function(){
+    $('a.scroll-link').on('click', function(event){
+      event.preventDefault();
+
+      var $this = $(this);
+      var linkTo = $this.attr('href');
+      var $target;
+      var offset = 0;
+      var pos = 0;
+      if(linkTo != '#top'){
+      var $target = $(linkTo);
+      var offset = $target.data('offsettop');
+      var pos = $target.offset().top - offset;
+      }
+      $('html,body').animate({scrollTop: pos},400);
+    });
+});
+$(function(){
+    $(window).on('scroll',function(){
+        $('a.scroll-track').each(function(){
+            var $window = $(window);
+            var $this = $(this);
+            var linkTo = $this.attr('href');
+            var $target = $(linkTo);
+            var offset = $target.data('offsettop') || 0;
+            var tolerance = 1;
+            var topLimit = $target.offset().top - offset - tolerance;
+            var bottomLimit = $target.offset().top + $target.outerHeight() - offset + tolerance;
+
+            if(topLimit <= $window.scrollTop() && $window.scrollTop() <= bottomLimit){
+                $this.addClass('selected');
+            }else{
+                $this.removeClass('selected')
+            }
+        });
+    });
+});
