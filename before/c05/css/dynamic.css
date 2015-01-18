@@ -131,7 +131,7 @@ ul.filter-btn li.off a {
   }
   ul.filter-btn li {
     position: static;
-    margin: 0 1.6666666%;/* 1.666666%=10px/600px */
+    margin: 0 1.6666666% 0 0;/* 1.666666%=10px/600px */
     width: 23.75%; /* 23.75%=142.5px/600px */
     text-align: center;
   }
