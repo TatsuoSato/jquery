@@ -1,7 +1,7 @@
 /**
  * 06-03　カルーセルのプラグインを作成する
  */
-$.fn.extend({
+
 	carousel:function(){
 		var $carousel = $(this);
 		$carousel
@@ -58,7 +58,7 @@ $.fn.extend({
 			});
 		}
 	}
-});
+
 
 /**
  * 06-01　カルーセル

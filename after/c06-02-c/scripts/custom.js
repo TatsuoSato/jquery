@@ -73,6 +73,7 @@ $(function(){
 		.children('.thumbs-list').each(function(){
 			$(this).children('li').eq(myIndex).addClass('selected');
 		});
+		
 		var $img = $this.find('img');
 		changeImage($img.data('imgpath'));
 	});

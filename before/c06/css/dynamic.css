@@ -26,10 +26,11 @@
 .thumbs-list li {
     display: inline-block;
     margin: 0 1px;
-    border: 1px solid #000;
+    border: 2px solid #000;
     width: 76px;
     height: 76px;
 }
+
 /* [<][>]ボタン */
 .thumbs-nav a {
     display: block;
@@ -59,6 +60,33 @@ a.next:hover {
 a.next:active {
     background-position: -80px 0;
 }
+/* メイン画像のスタイル */
+.mainimage {
+    position: relative;
+    overflow: hidden;
+}
+.mainimage img {
+    min-width: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+.mainimage img.front {
+    position: relative;
+}
+/* サムネイルのハイライト */
+.thumbs-list li.selected {
+    border: 2px solid #ffa;
+}
+.thumbs-list li a:hover img {
+    opacity: 0.8;
+}
+/* キャプション */
+.caption {
+    margin: 20px 0 0 0;
+    font-size: 0.9em;
+    color: #fff;
+}
 /*
 RESPONSIVE: スマートフォン向け600px以下
 */
@@ -69,7 +97,14 @@ RESPONSIVE: スマートフォン向け600px以下
     background: #fff;
     border-radius: 0;
   }
-  .thumbs-list {
-    border: 1px solid #fff;
+  .thumbs-list li {
+    border: 2px solid #fff;
+  }
+  /* サムネイルのハイライト */
+  .thumbs-list li.selected {
+    border: 2px solid #8ac2d0;
+  }
+  .caption {
+    color: #000;
   }
 }
